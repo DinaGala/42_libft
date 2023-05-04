@@ -6,12 +6,14 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 14:46:30 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/02 15:09:01 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2023/05/04 18:54:27 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 //#include <ctype.h>
+
+#include "libft.h"
 
 int	ft_isalpha(int x)
 {

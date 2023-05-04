@@ -5,14 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/19 19:35:35 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/02/19 19:42:07 by nzhuzhle         ###   ########.fr       */
+/*   Created: 2023/05/04 18:14:44 by nzhuzhle          #+#    #+#             */
+/*   Updated: 2023/05/04 20:55:10 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char	*str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
-	int	cont;
+	size_t	cont;
 
 	cont = 0;
 	while (str[cont] != '\0')

@@ -6,12 +6,13 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 16:16:27 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/02 17:38:26 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:28:11 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 //#include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *str, int c, size_t n)
 {

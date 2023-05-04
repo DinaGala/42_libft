@@ -6,7 +6,7 @@
 #    By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 18:10:18 by nzhuzhle          #+#    #+#              #
-#    Updated: 2023/05/03 21:02:09 by nzhuzhle         ###   ########.fr        #
+#    Updated: 2023/05/04 20:44:29 by nzhuzhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,12 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_isalpha ft_isdigit ft_isalnum ft_isascii ft_isprint ft_toupper \ 
-ft_tolower ft_strchr ft_strrchr ft_strnstr ft_memset ft_bzero ft_memcpy \
-	ft_memchr 
- 
+SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+	   ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strnstr.c \
+	   ft_memset.c ft_bzero.c ft_memcpy.c ft_memchr.c ft_memcmp.c ft_calloc.c \
+	   ft_strlen.c ft_strlcpy.c ft_strdup.c ft_strncmp.c ft_strlcat.c \
+	   ft_memmove.c
+
 INCLUDE = -I ./
 
 OBJ = $(SRCS:.c=.o) 	
@@ -28,14 +30,14 @@ all: $(NAME)
 %.o: %.c $(HEADER) 
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-$(NAME):: $(OBJ)
+$(NAME): $(OBJ)
 	ar -rcs $(NAME) $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
 
 clean:
-	rm -f srcs/*.o 
+	rm -f *.o 
 
 re: 
 	fclean all

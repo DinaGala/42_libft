@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 15:36:22 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/04 19:04:58 by nzhuzhle         ###   ########.fr       */
+/*   Created: 2023/05/04 18:02:14 by nzhuzhle          #+#    #+#             */
+/*   Updated: 2023/05/04 18:42:45 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-//#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "libft.h"
 
-int	ft_isalnum(int x)
+char	*ft_strdup(const char *s)
 {
-	if ((x > 47 && x < 58) || (x > 64 && x < 91) || (x > 96 && x < 123))
-		return (1);
-	return (0);
+	char	*m;
+	size_t	size;
+	size_t	i;
+
+	size = ft_strlen(s) + 1;
+	m = (char *) malloc(size);
+	i = 0;
+	while (i < size - 1)
+	{
+		m[i] = s[i];
+		i++;
+	}
+	m[i] = '\0';
+	return (m);
 }
 
-/*int	main(void)
+int	main(void)
 {
-	int	x = 116;
+	const char	s[] = "123456";
 
-	printf("%d\n", isalnum(x));
-	printf("%d\n", ft_isalnum(x));
+	printf("%s\n", ft_strdup(s));
+	printf("%s\n", strdup(s));
 	return (0);
-}*/
+}

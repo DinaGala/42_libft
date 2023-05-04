@@ -6,16 +6,17 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 18:29:12 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/03/01 17:12:45 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:35:33 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 //#include <string.h>
+#include "libft.h"
 
-unsigned int	count(char *str)
+static size_t	count(char *str)
 {
-	unsigned int	lenth;
+	size_t	lenth;
 
 	lenth = 0;
 	while (str[lenth])
@@ -23,15 +24,15 @@ unsigned int	count(char *str)
 	return (lenth);
 }
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	d;
-	unsigned int	s;
-	unsigned int	j;
+	size_t	i;
+	size_t	d;
+	size_t	s;
+	size_t	j;
 
 	d = count(dest);
-	s = count(src);
+	s = count((char *)src);
 	i = 0;
 	j = d;
 	if (d >= size || size == 0)

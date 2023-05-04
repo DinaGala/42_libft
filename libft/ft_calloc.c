@@ -1,31 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 15:36:22 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/04 19:04:58 by nzhuzhle         ###   ########.fr       */
+/*   Created: 2023/05/04 17:13:31 by nzhuzhle          #+#    #+#             */
+/*   Updated: 2023/05/04 18:10:54 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
-//#include <ctype.h>
+//#include <string.h>
+#include <stdlib.h>
 #include "libft.h"
 
-int	ft_isalnum(int x)
+void	*ft_calloc(size_t nitems, size_t size)
 {
-	if ((x > 47 && x < 58) || (x > 64 && x < 91) || (x > 96 && x < 123))
-		return (1);
-	return (0);
+	void	*mem;
+
+	mem = malloc(nitems * size);
+	ft_memset(mem, 0, nitems * size);
+	return (mem);
 }
 
 /*int	main(void)
 {
-	int	x = 116;
+	size_t	nitems = 3;
+	size_t	size = 4;
+	size_t	i;
+	int		*c;
+	int		*f;
 
-	printf("%d\n", isalnum(x));
-	printf("%d\n", ft_isalnum(x));
+	c = (int *)calloc(nitems, size);
+	f = (int *)ft_calloc(nitems, size);
+	for( i=0 ; i < nitems ; i++ ) 
+	{
+		printf("%d ",c[i]);
+    }	
+	printf("\n");
+	for( i=0 ; i < nitems ; i++ )
+    {
+        printf("%d ",f[i]);
+    }
 	return (0);
 }*/

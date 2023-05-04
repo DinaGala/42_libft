@@ -6,12 +6,13 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:48:41 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/02 16:03:59 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:05:16 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <ctype.h>
 //#include <stdio.h>
+#include "libft.h"
 
 int	ft_isascii(int x)
 {

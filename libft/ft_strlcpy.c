@@ -5,18 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 19:59:33 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/03/02 13:15:11 by nzhuzhle         ###   ########.fr       */
+/*   Created: 2023/05/04 18:23:57 by nzhuzhle          #+#    #+#             */
+/*   Updated: 2023/05/04 20:56:48 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 //#include <string.h>
+#include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	unsigned int	lenth;
-	unsigned int	i;
+	size_t	lenth;
+	size_t	i;
 
 	lenth = 0;
 	while (src[lenth] != '\0')

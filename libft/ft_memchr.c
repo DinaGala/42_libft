@@ -6,12 +6,13 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:29:35 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/03 19:49:22 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:10:14 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 //#include <string.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
@@ -26,7 +27,7 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	strret = (void *)&str[i];
 	if (str1[i] == c)
 		return (strret);
-	return (NULL);
+	return ("\0");
 }
 
 /*int	main(void)

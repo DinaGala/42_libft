@@ -6,12 +6,14 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:25:55 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/02 17:37:54 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:04:17 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <strings.h>
 //#include <stdio.h>
+
+#include "libft.h"
 
 void	ft_bzero(void *dst, size_t n)
 {

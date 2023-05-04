@@ -6,12 +6,13 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:15:04 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/03 17:45:48 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:01:15 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <string.h>
 //#include <stdio.h>
+#include "libft.h"
 
 static size_t	count(char *little)
 {
@@ -44,7 +45,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			return (&b[s]);
 		s++;
 	}
-	return (NULL);
+	return ("\0");
 }
 
 /*int	main(void)

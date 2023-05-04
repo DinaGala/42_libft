@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 20:10:42 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/04 20:38:09 by nzhuzhle         ###   ########.fr       */
+/*   Created: 2023/05/04 14:06:21 by nzhuzhle          #+#    #+#             */
+/*   Updated: 2023/05/04 19:10:41 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 //#include <string.h>
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	size_t			i;
-	int				a;
-	int				b;
+	size_t	i;
+	int		a;
+	int		b;
+	char	*s1;
+	char	*s2;
 
 	i = 0;
+	s1 = (char *)str1;
+	s2 = (char *)str2;
 	if (n == 0)
 		return (0);
 	else
@@ -39,11 +43,14 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 /*int	main(void)
 {
-	char	s1[] = "77\200";
-	char	s2[] = "777";
-	unsigned int	n = 1;
+	char str1[] = "asdf";
+	char str2[] = "";
+	size_t	n = 5;
 
-	printf("%i\n", strncmp(s1, s2, n));
-	printf("%i", ft_strncmp(s1, s2, n));
-	return (0);
+//   memcpy(str1, "abcdef", 6);
+//   memcpy(str2, "ABCDEF", 6);
+
+   printf("%d\n",  memcmp(str1, str2, n));
+   printf("%d\n",  ft_memcmp(str1, str2, n));
+   return (0);
 }*/
