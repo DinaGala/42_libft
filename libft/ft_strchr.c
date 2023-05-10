@@ -6,21 +6,28 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:53:24 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/03 17:09:16 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:49:46 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 //#include <string.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {
-	char	*x;
+	unsigned int		i;
 
-	x = (char *)str;
-	while ((*x != '\0') && x[0] != c)
-		x++;
-	return (x);
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == (char)c)
+			return ((char *)&str[i]);
+		i++;
+	}
+	if (str[i] == (char)c)
+		return ((char *)&str[i]);
+	return (NULL);
 }
 
 /*int	main(void)

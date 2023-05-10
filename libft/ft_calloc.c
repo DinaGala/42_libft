@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 17:13:31 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/04 18:10:54 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:03:58 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_calloc(size_t nitems, size_t size)
 	void	*mem;
 
 	mem = malloc(nitems * size);
+	if (mem == 0)
+		return (0);
 	ft_memset(mem, 0, nitems * size);
 	return (mem);
 }

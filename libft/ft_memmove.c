@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:30:44 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/04 20:26:37 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2023/05/05 20:24:33 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,71 +14,25 @@
 //#include <string.h>
 #include "libft.h"
 
-static void	*back(void *str1, const void *str2, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (((char *)str2)[i])
-		i++;
-	if (i < n)
-	{
-		while (i < n)
-		{
-			((char *)str1)[i] = '\0';
-			n--;
-		}
-	}
-	while (n >= 0)
-	{
-		((char *)str1)[n] = ((char *)str2)[n];
-		n--;
-	}
-	return (str1);
-}
-
-static void	*forward(void *str1, const void *str2, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (((char *)str1)[i] && ((char *)str2)[i] && i < n)
-	{
-		((char *)str1)[i] = ((char *)str2)[i];
-		i++;
-	}
-	if (((char *)str2)[i] == '\0' && i < n)
-	{
-		while (i < n)
-		{
-			((char *)str1)[i] = '\0';
-			i++;
-		}
-	}
-	return (str1);
-}	
-
 void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
-	size_t	i;
+	size_t		i;
+	char		*str11;
+	const char	*str22;
 
 	i = 0;
-	if (((char *)str2) == (void *) '\0')
+	str11 = (char *)str1;
+	str22 = (char *)str2;
+	if (!str22 && !str11)
+		return (NULL);
+	if (str11 < str22)
+		str1 = ft_memcpy(str1, str2, n);
+	if (str22 < str11)
 	{
-		while (n > 0 && ((char *)str1)[i])
-		{
-			((char *)str1)[i] = '\0';
-			i++;
-		}
-		return (str1);
+		while (n--)
+			str11[n] = str22[n];
 	}
-	if (((char *)str1) == (void *) '\0' || (char *)str1 == (char *)str2)
-		return (str1);
-	if ((char *)str1 < (char *)str2)
-		return (forward(str1, str2, n));
-	if ((char *)str2 < (char *)str1)
-		return (back(str1, str2, n));
-	return (0);
+	return (str1);
 }
 
 /*int	main(void)
