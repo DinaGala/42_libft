@@ -6,98 +6,79 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 21:34:04 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/12 21:18:52 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2023/05/13 22:24:24 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 //#include <stdio.h>
 
-static const char	*pop(char *arr, const char *s, char c)
+static char	**totalfree(char **arr, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	if (*s == '\0')
-		return (NULL);
-	while (*s != '\0' && *s != c)
+	while (i < n)
 	{
-		arr[i] = *s;
-		s++;
+		free(arr[i]);
 		i++;
 	}
-	arr[i] = '\0';
-	return (s);
-}
-
-static int	lenth(char const *s, char c)
-{
-	int	l;
-
-	l = 0;
-	while (*s != c && *s != '\0')
-	{
-		l++;
-		s++;
-	}
-	return (l);
+	free(arr);
+	return (NULL);
 }
 
 static size_t	count(char const *s, char c)
 {
 	int		i;
-	size_t	n;
+	size_t	count;
 
 	i = 0;
-	n = 0;
+	count = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			count++;
+		i++;
+	}
+	return (count);
+}
+
+char	**ft_pop(char const *s, char c, char **arr, size_t n)
+{
+	size_t	i;
+	size_t	start;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c && i == 0)
+			start = i;
+		else if (s[i] != c && i > 0 && s[i - 1] == c)
+			start = i;
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 		{
+			arr[n] = ft_substr(s, start, (i - start + 1));
+			if (arr[n] == 0)
+				return (totalfree(arr, n));
 			n++;
-			while (s[i] && s[i] != c)
-				i++;
 		}
 		i++;
 	}
-	return (n);
+	arr[n] = NULL;
+	return (arr);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
-	size_t	i;
 
 	arr = (char **) malloc((count(s, c) + 1) * sizeof(char *));
 	if (arr == 0)
 		return (NULL);
-	i = 0;
-	while (*s)
-	{
-		if (*s != c)
-		{
-			arr[i] = (char *) malloc(lenth(s, c) + 1);
-			if (arr[i] == 0)
-			{
-				free(arr);
-				return (NULL);
-			}
-			s = pop(arr[i], s, c);
-			i++;
-		}
-		s++;
-	}
-	arr[i] = NULL;
-
-//	printf("inside i: %lu\n", i);
-//	printf("inside arr[0]: %s\n", arr[0]);
-//	printf("inside arr[1]: %p\n", arr[1]);
-	return (arr);
+	return (ft_pop(s, c, arr, 0));
 }
 
-/*#include <string.h>
-
-int	main(void)
+/*int	main(void)
 {
 //	int			i;
 	char 		**res;
