@@ -6,7 +6,7 @@
 #    By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 18:10:18 by nzhuzhle          #+#    #+#              #
-#    Updated: 2023/05/13 18:52:21 by nzhuzhle         ###   ########.fr        #
+#    Updated: 2023/05/14 21:57:23 by nzhuzhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,14 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	   ft_itoa.c ft_split.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
 	   ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
+SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+			ft_lstmap.c
+
 INCLUDE = -I ./
 
-OBJ = $(SRCS:.c=.o) 	
+OBJ = $(SRCS:.c=.o) 
+OBJ_BONUS = $(SRCS_BONUS:.c=.o)	
 
 all: $(NAME)
 	
@@ -34,6 +39,9 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar -rcs $(NAME) $(OBJ)
+
+bonus: $(OBJ) $(OBJ_BONUS)
+	ar -rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
 	rm -f $(NAME)
