@@ -6,7 +6,7 @@
 /*   By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 18:30:44 by nzhuzhle          #+#    #+#             */
-/*   Updated: 2023/05/05 20:24:33 by nzhuzhle         ###   ########.fr       */
+/*   Updated: 2023/05/16 19:45:38 by nzhuzhle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@
 
 void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
-	size_t		i;
 	char		*str11;
 	const char	*str22;
 
-	i = 0;
 	str11 = (char *)str1;
 	str22 = (char *)str2;
 	if (!str22 && !str11)

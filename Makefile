@@ -6,7 +6,7 @@
 #    By: nzhuzhle <nzhuzhle@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/26 18:10:18 by nzhuzhle          #+#    #+#              #
-#    Updated: 2023/05/14 21:57:23 by nzhuzhle         ###   ########.fr        #
+#    Updated: 2023/05/16 19:51:32 by nzhuzhle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,23 +34,24 @@ OBJ_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME)
 	
-%.o: %.c $(HEADER) 
+%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 $(NAME): $(OBJ)
 	ar -rcs $(NAME) $(OBJ)
 
-bonus: $(OBJ) $(OBJ_BONUS)
+bonus: .bonus
+	
+.bonus: $(OBJ) $(OBJ_BONUS)
 	ar -rcs $(NAME) $(OBJ) $(OBJ_BONUS)
+	touch .bonus
+
+clean:
+	rm -f $(OBJ) $(OBJ_BONUS) .bonus a.out
 
 fclean: clean
 	rm -f $(NAME)
 
-clean:
-	rm -f *.o 
+re: fclean all
 
-re: 
-	fclean all
-
-.PHONY: all fclean clean re
-
+.PHONY: all fclean clean re bonus
